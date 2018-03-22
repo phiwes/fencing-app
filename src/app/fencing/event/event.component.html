@@ -1,0 +1,51 @@
+<section class="new-training" fxLayout fxLayoutAlign="center">
+  <form (ngSubmit)="addEvent(f)" #f="ngForm">
+    <mat-card>
+      <mat-card-title fxLayoutAlign="center" >Enter a tournament</mat-card-title>
+      <mat-card-content fxLayoutAlign="center">
+        <div class="row">
+          <div class="row">
+            <mat-form-field>
+              <mat-select placeholder="Weapon" name="weapon" [(ngModel)]="event.weapon">
+                <mat-option value="Foil">Foil</mat-option>
+                <mat-option value="Epee">Epee</mat-option>
+                <mat-option value="Saber">Saber</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <mat-form-field>
+            <mat-select placeholder="Category" name="category" [(ngModel)]="event.category">
+              <mat-option value="Y10">Y10</mat-option>
+              <mat-option value="Y12">Y12</mat-option>
+              <mat-option value="Y14">Y14</mat-option>
+              <mat-option value="Cadet">Cadet</mat-option>
+              <mat-option value="Junior">Junior</mat-option>
+              <mat-option value="DIV 3">DIV 3</mat-option>
+              <mat-option value="DIV 2">DIV 2</mat-option>
+              <mat-option value="DIV 1A">DIV 1A</mat-option>
+              <mat-option value="DIV 1">DIV 1</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field>
+            <mat-select placeholder="Category" name="gender" [(ngModel)]="event.gender">
+              <mat-option value="Mixed">Mixed</mat-option>
+              <mat-option value="Womens">Womens</mat-option>
+              <mat-option value="Mens">Mens</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions fxLayoutAlign="center">
+        <button type="submit" mat-button [disabled]="f.invalid">Save</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</section>
