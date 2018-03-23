@@ -3,5 +3,6 @@ export class BoutModel {
   opponent: string;
   yourScore: number;
   opponentScore: number;
+  boutType: string;
   notes: string;
 }

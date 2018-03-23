@@ -16,6 +16,8 @@ export class TournamentListComponent implements OnInit {
   tournamentsSubscription: Subscription;
 
 
+
+
   dataSource = new MatTableDataSource<TournamentModel>();
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -29,7 +31,12 @@ export class TournamentListComponent implements OnInit {
       }
     )
     this.fencingService.fetchTournaments();
-  }
+
+  };
+
+
+
+
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
@@ -44,13 +51,16 @@ export class TournamentListComponent implements OnInit {
     this.fencingService.tournamentChanged.next(tournament);
     this.fencingService.tournamentEditing.next(true);
     this.fencingService.fetchTournamentById(tournament.id);
-    this.router.navigateByUrl('/tournament');
+    this.fencingService.tournamentEditing.next(true);
   }
 
-  addEvent(tournament: TournamentModel){
-    console.log("this isthe id in the method: " + tournament.id);
+  toAddEvent(tournament: TournamentModel){
     this.fencingService.tournamentChanged.next(tournament);
     this.fencingService.tournamentId = tournament.id;
-    this.router.navigateByUrl('/event');
+    this.router.navigateByUrl('/event-list');
+  }
+
+  deleteTournament(tournament: TournamentModel){
+    this.fencingService.deleteTournament(tournament);
   }
 }

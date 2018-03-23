@@ -1,0 +1,41 @@
+<section class="new-training" fxLayout fxLayoutAlign="center">
+  <form (ngSubmit)="addBout(f)" #f="ngForm">
+
+    <div class="row">
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="Opponent Name" name="opponent" [(ngModel)]="bout.opponent">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Your Score" name="yourScore" [(ngModel)]="bout.yourScore">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Opponent Score" name="opponentScore"
+               [(ngModel)]="bout.opponentScore">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field>
+        <input matInput placeholder="Bout Type" name="boutType" [(ngModel)]="bout.boutType">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field>
+        <textarea matInput placeholder="Notes" [(ngModel)]="bout.notes" name="notes"></textarea>
+      </mat-form-field>
+    </div>
+
+
+    <button type="submit" mat-button [disabled]="f.invalid">Save</button>
+
+  </form>
+</section>

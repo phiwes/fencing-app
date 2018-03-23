@@ -25,6 +25,9 @@ export class EventComponent implements OnInit {
     });
 
 
+    this.fencingService.eventChanged.subscribe(res => {
+      this.event = res;
+    });
   }
 
   addEvent(form: NgForm){

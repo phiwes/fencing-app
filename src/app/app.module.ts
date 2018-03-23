@@ -28,6 +28,8 @@ import {FencingService} from './fencing/fencing.service';
 import {TournamentListComponent} from './fencing/tournament-list/tournament-list.component';
 import { EventComponent } from './fencing/event/event.component';
 import { EventListComponent } from './fencing/event-list/event-list.component';
+import { BoutListComponent } from './fencing/bout-list/bout-list.component';
+import { BoutComponent } from './fencing/bout/bout.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { EventListComponent } from './fencing/event-list/event-list.component';
     AddTournamentComponent,
     TournamentListComponent,
     EventComponent,
-    EventListComponent
+    EventListComponent,
+    BoutListComponent,
+    BoutComponent
   ],
   imports: [
     BrowserModule,

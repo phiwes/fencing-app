@@ -23,7 +23,9 @@
       </mat-card-content>
 
       <mat-card-actions fxLayoutAlign="center">
-        <button type="submit" mat-button [disabled]="f.invalid">Save</button>
+        <button *ngIf="!editingMode" type="submit" mat-button [disabled]="f.invalid">Save</button>
+        <button *ngIf="editingMode" type="submit" mat-button [disabled]="f.invalid">Update</button>
+        <button type="reset" mat-button (click)="f.reset(); cancelEditMode();">Reset</button>
       </mat-card-actions>
     </mat-card>
   </form>

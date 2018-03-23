@@ -5,18 +5,18 @@
 </div>
 
 <mat-table [dataSource]="dataSource" matSort>
-  <ng-container matColumnDef="weapon">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Weapon</mat-header-cell>
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Opponent</mat-header-cell>
     <mat-cell *matCellDef="let element">{{ element.weapon}}</mat-cell>
   </ng-container>
 
 
-  <ng-container matColumnDef="category">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Category</mat-header-cell>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>BoutType</mat-header-cell>
     <mat-cell *matCellDef="let element">{{ element.category }}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="gender">
+  <ng-container matColumnDef="location">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Gender</mat-header-cell>
     <mat-cell *matCellDef="let element">{{ element.gender }}</mat-cell>
   </ng-container>
@@ -24,8 +24,7 @@
   <ng-container matColumnDef="action">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Location</mat-header-cell>
     <mat-cell *matCellDef="let element">
-      <button mat-raised-button color="primary" (click)="editEvent(element, element.id)">Edit Event</button>
-      <button mat-raised-button color="primary" (click)="toAddBout(element, element.id)">Add Bouts</button>
+      <button mat-raised-button color="primary" (click)="editBout(element, element.id)">Edit Bout</button>
       <button mat-raised-button color="primary" (click)="deleteEvent(element)">Delete</button>
 
     </mat-cell>
@@ -41,5 +40,5 @@
 </mat-paginator>
 
 <section>
-  <app-event></app-event>
+  <app-bout></app-bout>
 </section>

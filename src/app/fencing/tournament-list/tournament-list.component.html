@@ -25,8 +25,9 @@
     <mat-header-cell *matHeaderCellDef mat-sort-header>Location</mat-header-cell>
     <mat-cell *matCellDef="let element">
       <button mat-raised-button color="primary" (click)="editTournament(element)">Edit</button>
-      <button mat-raised-button color="primary" (click)="addEvent(element, element.id)">Add Event</button>
-      <button mat-raised-button color="primary" (click)="addEvent(element, element.id)">Edit Events</button>
+      <button mat-raised-button color="primary" (click)="toAddEvent(element, element.id)">Add Events</button>
+      <button mat-raised-button color="primary" (click)="deleteTournament(element)">Delete</button>
+
     </mat-cell>
   </ng-container>
 
@@ -36,5 +37,9 @@
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 
-<mat-paginator [pageSize]="1" [pageSizeOptions]="[1, 5, 10, 20]">
+<mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
 </mat-paginator>
+
+<section>
+  <app-tournament></app-tournament>
+</section>

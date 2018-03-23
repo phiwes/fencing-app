@@ -17,13 +17,21 @@ export class AddTournamentComponent implements OnInit {
   tournament: TournamentModel;
   tournamentSub: Subscription;
 
+  editingSub: Subscription;
+  editingMode: boolean;
 
   ngOnInit() {
     this.tournament = new TournamentModel();
 
-    this.fencingService.tournamentChanged.subscribe((response: TournamentModel) => {
+    this.tournamentSub = this.fencingService.tournamentChanged.subscribe((response: TournamentModel) => {
       this.tournament = response;
     });
+
+    this.editingSub = this.fencingService.tournamentEditing.subscribe(
+      (response: boolean) => {
+        this.editingMode = response;
+      }
+    );
   }
 
   addTournament(form: NgForm) {
@@ -31,7 +39,15 @@ export class AddTournamentComponent implements OnInit {
     this.tournament.location = form.value.location;
     this.tournament.name = form.value.name;
 
-    this.fencingService.saveNewTournament(this.tournament);
+    if (this.editingMode) {
+      this.fencingService.updateTournament(this.tournament);
+    } else {
+      this.fencingService.saveNewTournament(this.tournament);
+    }
+  }
+
+  cancelEditMode(){
+    this.fencingService.tournamentEditing.next(false);
   }
 
 }
